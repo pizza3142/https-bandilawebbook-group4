@@ -1,0 +1,86 @@
+/* Navigation Bar */
+/* Navigation Bar */
+body 
+{
+	margin: 0;
+	font-family: 'fonts/Quicksand.tff', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	font-size: 85%;
+	background-color: 0;
+}
+
+.container {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.container img {
+	position: relative;
+	top: 15px;
+	float: left;
+}
+
+.container img:hover {
+	filter: grayscale(45%);
+	transition: all ease-in-out 250ms;
+}
+
+.NavBar
+{
+	width: 80%;
+	margin: 0 auto;
+}
+
+header::after
+{
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.NavBar nav 
+{
+	float: right;
+}
+
+.NavBar nav ul
+{
+	margin: 0;
+	padding-top: 15px;
+	list-style: none;
+}
+
+.NavBar nav li
+{
+	display: inline-block;
+	margin-left: 110px;
+
+	position: relative;
+	top: 7.5px;
+}
+
+.NavBar nav a
+{
+	color: rgb(0, 0, 0);
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.NavBar nav a:hover
+{
+	color: rgb(199, 199, 199);
+	transition: all ease-in-out 250ms;
+}
+
+/* Books Available */
+.Library {
+	/* Outline Header */
+    outline-style: solid;
+    outline-width: 0.5px;
+    outline-color: rgb(128, 128, 128);
+	
+    padding: 20px;
+    margin-top: 30px;
+    background-color: rgb(255, 255, 255);
+    height: 1500px;
+}

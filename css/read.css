@@ -1,0 +1,542 @@
+/* Navigation Bar */
+body 
+{
+	margin: 0;
+	font-family: 'fonts/Quicksand.tff', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	font-size: 85%;
+	background-color: 0;
+}
+
+.container {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.container img {
+	position: relative;
+	top: 15px;
+	float: left;
+}
+
+.container img:hover {
+	filter: grayscale(45%);
+	transition: all ease-in-out 250ms;
+}
+
+.NavBar
+{
+	width: 80%;
+	margin: 0 auto;
+}
+
+header::after
+{
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.NavBar nav 
+{
+	float: right;
+}
+
+.NavBar nav ul
+{
+	margin: 0;
+	padding-top: 15px;
+	list-style: none;
+}
+
+.NavBar nav li
+{
+	display: inline-block;
+	margin-left: 110px;
+
+	position: relative;
+	top: 7.5px;
+}
+
+.NavBar nav a
+{
+	color: rgb(0, 0, 0);
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.NavBar nav a:hover
+{
+	color: rgb(199, 199, 199);
+	transition: all ease-in-out 250ms;
+}
+
+
+
+
+
+/* 
+* 	Read Player 
+* 	 - This is where all pages are animated!
+*/
+
+.Read {
+	/* Outline Header */
+    outline-style: solid;
+    outline-width: 0.5px;
+    outline-color: rgb(128, 128, 128);
+	
+    margin-top: 30px;
+    background-color: rgb(255, 197, 197);
+
+    height: 635px;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.book {
+	position: relative;
+	width: 320px;
+	height: 440px;
+	transition: transform 0.5s;
+}
+
+.paper {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	perspective: 1500px;
+}
+
+/* Pages Animation */
+.Front, .Back {
+	background-color: white;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	transform-origin: left;
+    transition: transform 0.5s;
+	overflow:hidden;
+}
+
+.Front {
+    z-index: 1;
+    backface-visibility: hidden;
+    border-left: 5px solid rgb(255, 245, 107);
+}
+
+.Back {
+    z-index: 0;
+}
+
+.frontContent,
+.backContent {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.backContent {
+    transform: rotateY(180deg);
+}
+
+/* Flipped Page (Responsible for turning the page) */
+
+.flipped .Front,
+.flipped .Back {
+    transform: rotateY(-180deg);
+}
+
+/* Buttons */
+button {
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	margin: 5px;
+
+	transition: transform 0.5s;
+	opacity: 75%;
+}
+
+button:focus {
+	outline: none;
+}
+
+button:hover img {
+	opacity: 40%;
+	transition: all ease-in-out 250ms;
+}
+
+#prev {
+	visibility: hidden;
+}
+
+#next {
+	visibility: visible;
+}
+
+.ttNext {
+	visibility: hidden;
+	width: 120px;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	border-radius: 5px;
+	padding: 5px 0;
+	opacity: 0;
+
+	/* Position the tooltip */
+	position: absolute;
+	margin-top: -45px;
+	margin-left: -85px;
+}
+
+#next .ttNext::after {
+	content: " ";
+	position: absolute;
+	top: 100%; /* At the bottom of the tooltip */
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: black transparent transparent transparent;
+}
+
+#next:hover .ttNext {
+	opacity: 100;
+	transition: all ease-in-out 250ms;
+	visibility: visible;
+}
+
+.ttPrev {
+	visibility: hidden;
+	width: 120px;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	border-radius: 5px;
+	padding: 5px 0;
+	opacity: 0;
+
+	/* Position the tooltip */
+	position: absolute;
+	margin-top: -45px;
+	margin-left: -85px;
+
+}
+
+#prev .ttPrev::after {
+	content: " ";
+	position: absolute;
+	top: 100%; /* At the bottom of the tooltip */
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: black transparent transparent transparent;
+}
+
+#prev:hover .ttPrev {
+	opacity: 100;
+	transition: all ease-in-out 250ms;
+	visibility: visible;
+}
+
+/* Paper Stack Order */
+#p1 {
+	z-index: 3;
+}
+
+#p2 {
+	z-index: 2;
+}
+
+#p3 {
+	z-index: 1;
+}
+
+/* Page Content */
+
+/* Player Buttons */
+.SettingsButton {
+	width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#PlayPause img {
+	width: 50px;
+}
+
+#Volume img {
+	width: 50px;
+}
+
+#GotoPages img {
+	width: 50px;
+}
+
+.ttPlayPause {
+	visibility: hidden;
+	width: 120px;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	border-radius: 5px;
+	padding: 5px 0;
+	opacity: 0;
+
+	/* Position the tooltip */
+	position: absolute;
+	z-index: 1;
+	margin-top: -45px;
+	margin-left: -85px;
+}
+
+#PlayPause .ttPlayPause::after {
+	content: " ";
+	position: absolute;
+	top: 100%; /* At the bottom of the tooltip */
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: black transparent transparent transparent;
+}
+
+#PlayPause:hover .ttPlayPause {
+	opacity: 100;
+	transition: all ease-in-out 250ms;
+	visibility: visible;
+}
+
+.ttVolume {
+	visibility: hidden;
+	width: 120px;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	border-radius: 5px;
+	padding: 5px 0;
+	opacity: 0;
+
+	/* Position the tooltip */
+	position: absolute;
+	z-index: 1;
+	margin-top: -45px;
+	margin-left: -85px;
+}
+
+#Volume .ttVolume::after {
+	content: " ";
+	position: absolute;
+	top: 100%; /* At the bottom of the tooltip */
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: black transparent transparent transparent;
+}
+
+#Volume:hover .ttVolume {
+	opacity: 100;
+	transition: all ease-in-out 250ms;
+	visibility: visible;
+}
+
+.ttPages {
+	visibility: hidden;
+	width: 120px;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	border-radius: 5px;
+	padding: 5px 0;
+	opacity: 0;
+
+	/* Position the tooltip */
+	position: absolute;
+	z-index: 1;
+	margin-top: -45px;
+	margin-left: -85px;
+}
+
+#GotoPages .ttPages::after {
+	content: " ";
+	position: absolute;
+	top: 100%; /* At the bottom of the tooltip */
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: black transparent transparent transparent;
+}
+
+#GotoPages:hover .ttPages {
+	opacity: 100;
+	transition: all ease-in-out 250ms;
+	visibility: visible;
+}
+
+/* Volume Dialog */
+
+#vDlg {
+	border: none;
+
+	width: 700px;
+	height: 45px;
+
+	z-index: 4;
+
+	position: fixed;
+	bottom: 85px;
+
+	visibility: hidden;
+}
+
+#pDlg {
+	border: none;
+	border-right: 1px solid rgb(0, 0, 0);
+	border-top: 1px solid rgb(0, 0, 0);
+	border-bottom: 1px solid rgb(0, 0, 0);
+
+	width: 0px;
+	height: 600px;
+
+	z-index: 4;
+
+	position: fixed;
+	bottom: 72.5px;
+	
+	margin-left: 0px;
+
+	visibility: hidden;
+	transition: width 0.5s;
+}
+
+/* Slide 1 */
+
+.slidecontainer {
+	width: 33%;
+	position: relative;
+	bottom: 15px;
+}
+
+.slider {
+	-webkit-appearance: none;
+	width: 100%;
+	height: 10px;
+	background: #d3d3d3;
+	outline: none;
+	opacity: 0.7;
+	-webkit-transition: .2s;
+	transition: opacity .2s;
+}
+  
+.slider:hover {
+	opacity: 1;
+}
+  
+.slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 10px;
+	height: 10px;
+	background: rgb(67, 54, 255);
+	cursor: pointer;
+}
+  
+.slider::-moz-range-thumb {
+	width: 10px;
+	height: 10px;
+	background: rgb(67, 54, 255);
+	cursor: pointer;
+}
+
+/* Slide 2 */
+
+.slidecontainer2 {
+	width: 28%;
+	position: relative;
+	bottom: 72px;
+	left: 280px;
+}
+
+.slider2 {
+	-webkit-appearance: none;
+	width: 100%;
+	height: 10px;
+	background: #d3d3d3;
+	outline: none;
+	opacity: 0.7;
+	-webkit-transition: .2s;
+	transition: opacity .2s;
+}
+  
+.slider2:hover {
+	opacity: 1;
+}
+  
+.slider2::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 10px;
+	height: 10px;
+	background: rgb(67, 54, 255);
+	cursor: pointer;
+}
+  
+.slider2::-moz-range-thumb {
+	width: 10px;
+	height: 10px;
+	background: rgb(67, 54, 255);
+	cursor: pointer;
+}
+
+/* Slide 3 */
+
+.slidecontainer3 {
+	width: 28%;
+	position: relative;
+	bottom: 129px;
+	left: 492px;
+}
+
+.slider3 {
+	-webkit-appearance: none;
+	width: 100%;
+	height: 10px;
+	background: #d3d3d3;
+	outline: none;
+	opacity: 0.7;
+	-webkit-transition: .2s;
+	transition: opacity .2s;
+}
+  
+.slider3:hover {
+	opacity: 1;
+}
+  
+.slider3::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 10px;
+	height: 10px;
+	background: rgb(67, 54, 255);
+	cursor: pointer;
+}
+  
+.slider3::-moz-range-thumb {
+	width: 10px;
+	height: 10px;
+	background: rgb(67, 54, 255);
+	cursor: pointer;
+}

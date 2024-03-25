@@ -1,0 +1,11 @@
+Ian Tuyan:
+ - prev.png
+ - next.png
+ - placeholder.png
+ - play.png
+ - pause.png
+ - volume-mute.png
+ - volume-10%.png
+ - volume-25%.png
+ - volume-50%.png
+ - volume-100%.png
